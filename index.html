@@ -89,10 +89,15 @@
             const resultsDiv = document.getElementById('results');
             if (data.RelatedTopics && data.RelatedTopics.length > 0) {
                 data.RelatedTopics.forEach(topic => {
-                    if (topic.Text && topic.FirstURL) {
+                    if (topic.Text) {
                         const resultDiv = document.createElement('div');
                         resultDiv.classList.add('result');
-                        resultDiv.innerHTML = `<p><strong>Résultat :</strong> ${topic.Text}</p>`;
+                        // Affichage du titre et de la description
+                        resultDiv.innerHTML = `<h3>${topic.Text}</h3>`;
+                        // Si une URL est disponible, afficher la description du lien
+                        if (topic.FirstURL) {
+                            resultDiv.innerHTML += `<p><a href="${topic.FirstURL}" target="_blank">En savoir plus...</a></p>`;
+                        }
                         resultsDiv.appendChild(resultDiv);
                     }
                 });
@@ -100,6 +105,10 @@
                 resultsDiv.innerHTML = '<p>Aucun résultat trouvé.</p>';
             }
         }
+    </script>
+</body>
+</html>
+
     </script>
 </body>
 </html>
