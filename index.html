@@ -92,7 +92,7 @@
                     if (topic.Text && topic.FirstURL) {
                         const resultDiv = document.createElement('div');
                         resultDiv.classList.add('result');
-                        resultDiv.innerHTML = `<p>${topic.Text}</p><a href="${topic.FirstURL}" target="_blank">${topic.FirstURL}</a>`;
+                        resultDiv.innerHTML = `<p><strong>Résultat :</strong> ${topic.Text}</p>`;
                         resultsDiv.appendChild(resultDiv);
                     }
                 });
